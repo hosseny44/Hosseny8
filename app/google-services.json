@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "297397974366",
+    "project_id": "hosseny44-5b36c",
+    "storage_bucket": "hosseny44-5b36c.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:297397974366:android:6c1f7d142303f0b9998bcf",
+        "android_client_info": {
+          "package_name": "com.example.hosseny"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAEqhI2O_4iFIqIcWeW3vhylLPWqrK3nMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

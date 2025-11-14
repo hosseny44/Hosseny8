@@ -1,0 +1,40 @@
+package Fragment;
+
+import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import com.example.hosseny.R;
+
+public class AddF1Track {
+    private String trackName;
+    private String raceDistance;
+    private String numberOfLaps;
+    private String firstGrandPrix;
+
+    // Empty constructor is required for Firestore
+    public AddF1Track () {}
+    public AddF1Track(String trackName, String raceDistance, String numberOfLaps, String firstGrandPrix) {
+        this.trackName = trackName;
+        this.raceDistance = raceDistance;
+        this.numberOfLaps = numberOfLaps;
+        this.firstGrandPrix = firstGrandPrix;
+    }
+
+    // Getters and setters
+    public String getTrackName() { return trackName; }
+    public void setTrackName(String trackName) { this.trackName = trackName; }
+
+    public String getRaceDistance() { return raceDistance; }
+    public void setRaceDistance(String raceDistance) { this.raceDistance = raceDistance; }
+
+    public String getNumberOfLaps() { return numberOfLaps; }
+    public void setNumberOfLaps(String numberOfLaps) { this.numberOfLaps = numberOfLaps; }
+
+    public String getFirstGrandPrix() { return firstGrandPrix; }
+    public void setFirstGrandPrix(String firstGrandPrix) { this.firstGrandPrix = firstGrandPrix; }
+}
