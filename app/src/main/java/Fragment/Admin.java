@@ -16,7 +16,7 @@ import com.example.hosseny.R;
 public class Admin extends Fragment{
 
         private Button btnAdd, btnAll;
-
+// LAMA
         public Admin() {}
 
         @Override
