@@ -18,10 +18,10 @@ public class AddF1Track {
 
     // Empty constructor is required for Firestore
     public AddF1Track () {}
-    public AddF1Track(String trackName, String raceDistance, String numberOfLaps, String firstGrandPrix) {
+    public AddF1Track(String trackName, String raceDistance, String numberofLaps, String firstGrandPrix) {
         this.trackName = trackName;
         this.raceDistance = raceDistance;
-        this.numberOfLaps = numberOfLaps;
+        this.numberOfLaps = numberofLaps;
         this.firstGrandPrix = firstGrandPrix;
     }
 

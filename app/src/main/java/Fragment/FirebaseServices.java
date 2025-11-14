@@ -42,7 +42,7 @@ public class FirebaseServices extends Fragment {
         return firestore;
     }
 
-
+//
     public static FirebaseServices getInstance() {
         if (instance == null) {
             instance = new FirebaseServices();

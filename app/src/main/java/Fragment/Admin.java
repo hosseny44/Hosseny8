@@ -16,8 +16,8 @@ import com.example.hosseny.R;
 public class Admin extends Fragment{
 
         private Button btnAdd, btnAll;
-// LAMA
-        public Admin() {}
+// LAMA 111
+public Admin() {}
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,

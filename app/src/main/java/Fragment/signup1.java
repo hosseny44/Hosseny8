@@ -25,7 +25,7 @@ public class signup1 extends Fragment {
     private EditText etUsername, etPassword;
     private Button btnSignup;
     private FirebaseServices fbs;
-
+    //
     public signup1() {}
 
     @Override
