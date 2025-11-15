@@ -1,6 +1,4 @@
-package Fragment;
-import com.google.firebase.auth.AuthResult;
-import com.google.android.gms.tasks.Task;
+package com.example.hosseny.Fragment;
 
 import android.os.Bundle;
 
@@ -17,16 +15,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.hosseny.R;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.AuthResult;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link Login#newInstance} factory method to
- * create an instance of this fragment.
- */
+
+
 public class Login extends Fragment {
+
+
 
     private EditText etUsername , etPassword;
     private TextView tvSignupLink,tvForgotpassword;
@@ -108,19 +105,29 @@ public class Login extends Fragment {
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
                 if (username.trim() .isEmpty() && password.trim().isEmpty()){
-                    Toast.makeText(getActivity(), "some fields are empty!//", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(), "some fields are empty!", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 // Login procedure
-                fbs.getAuth().signInWithEmailAndPassword(username, password)
-                        .addOnCompleteListener(task -> {
-                            if (task.isSuccessful()) {
-                                Toast.makeText(getActivity(), "you have successfully login!", Toast.LENGTH_SHORT).show();
-                            } else {
-                                Toast.makeText(getActivity(), "failed to login! check user or password!", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                };
+                fbs.getAuth().signInWithEmailAndPassword(username, password).addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()){
+                            Toast.makeText(getActivity(), "you have successfully login!", Toast.LENGTH_SHORT).show();
+                                FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
+                                ft . replace(R.id.frameLayoutMain,new Admin())  ;
+                                ft . commit();
+                        }
+                        else {
+
+                            Toast.makeText(getActivity(), "failed to login!check user or password!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
+
+
+            }
         });
 
     }

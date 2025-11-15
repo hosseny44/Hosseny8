@@ -1,8 +1,5 @@
-package Fragment;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
+package com.example.hosseny.Fragment;
 
-import android.media.SoundPool;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,7 +13,6 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.hosseny.R;
-import com.google.android.gms.tasks.OnCompleteListener;
 
 
 public class ForgotPassword extends Fragment {

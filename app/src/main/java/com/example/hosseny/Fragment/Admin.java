@@ -1,4 +1,4 @@
-package Fragment;
+package com.example.hosseny.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -52,4 +52,3 @@ public Admin() {}
         }
     }
 
-}

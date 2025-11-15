@@ -9,8 +9,9 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
 
-import Fragment.AddTrack;
-import Fragment.Login;
+import com.example.hosseny.Fragment.AddTrack;
+import com.example.hosseny.Fragment.Admin;
+import com.example.hosseny.Fragment.Login;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,17 +25,14 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        setContentView(R.layout.activity_main);
-
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.main, new AddTrack())
-              //
-         .commit();
+        gotoLoginFragment();
     }
-    private void gotoLoginFragment() {
+    private void gotoLoginFragment()
+    {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft . replace(R.id.frameLayoutMain,new Login())  ;
         ft . commit();
     }
+
 
 }

@@ -1,18 +1,10 @@
-package Fragment;
+package com.example.hosseny.Fragment;
 import com.google.firebase.storage.FirebaseStorage;
-
-import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import com.example.hosseny.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.storage.FirebaseStorageKtxRegistrar;
 
 
 public class FirebaseServices extends Fragment {

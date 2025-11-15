@@ -1,4 +1,4 @@
-package Fragment;
+package com.example.hosseny.Fragment;
 import android.util.Patterns;
 
 import android.os.Bundle;
@@ -17,8 +17,6 @@ import com.example.hosseny.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
-import android.util.Patterns;
-import android.util.Patterns;
 
 
 public class signup1 extends Fragment {
