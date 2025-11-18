@@ -1,6 +1,6 @@
 package com.example.hosseny.Fragment;
-import android.util.Patterns;
 
+import android.util.Patterns;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -18,12 +18,12 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 
-
 public class signup1 extends Fragment {
+
     private EditText etUsername, etPassword;
-    private Button btnSignup;
+    private Button btnSignup, btnAdmin;
     private FirebaseServices fbs;
-    //
+
     public signup1() {}
 
     @Override
@@ -41,37 +41,47 @@ public class signup1 extends Fragment {
         etUsername = getView().findViewById(R.id.etUsernameSignup);
         etPassword = getView().findViewById(R.id.etPasswordSignup);
         btnSignup = getView().findViewById(R.id.btnSignupSignup);
+        btnAdmin = getView().findViewById(R.id.btnAdmin);   // ← زر الـ Admin
 
-        btnSignup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String username = etUsername.getText().toString().trim();
-                String password = etPassword.getText().toString().trim();
+        // -----------------------
+        //   SIGNUP BUTTON
+        // -----------------------
+        btnSignup.setOnClickListener(v -> {
+            String username = etUsername.getText().toString().trim();
+            String password = etPassword.getText().toString().trim();
 
-                // ✔ تصحيح الشرط: لازم يكون OR مش AND
-                if (username.isEmpty() || password.isEmpty()) {
-                    Toast.makeText(getActivity(), "Some fields are empty", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                // ✔ لازم يكون username عبارة عن إيميل صالح
-                if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
-                    Toast.makeText(getActivity(), "Invalid email format", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                fbs.getAuth().createUserWithEmailAndPassword(username, password)
-                        .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(getActivity(), "Signup successful", Toast.LENGTH_SHORT).show();
-                                } else {
-                                    Toast.makeText(getActivity(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
-                                }
-                            }
-                        });
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(getActivity(), "Some fields are empty", Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            if (!Patterns.EMAIL_ADDRESS.matcher(username).matches()) {
+                Toast.makeText(getActivity(), "Invalid email format", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            fbs.getAuth().createUserWithEmailAndPassword(username, password)
+                    .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getActivity(), "Signup successful", Toast.LENGTH_SHORT).show();
+                            } else {
+                                Toast.makeText(getActivity(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+        });
+
+        // -----------------------
+        //   ADMIN BUTTON
+        // -----------------------
+        btnAdmin.setOnClickListener(v -> {
+            getParentFragmentManager().beginTransaction()
+                    .replace(R.id.frameLayout, new Admin())
+                    .addToBackStack(null)
+                    .commit();
         });
     }
 }
+

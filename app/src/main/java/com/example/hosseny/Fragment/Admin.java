@@ -39,14 +39,14 @@ public Admin() {}
 
         private void gotoAddFragment() {
             FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.frameLayoutMain, new AddFragment()); // ضع هنا الفراجمنت الخاص بـ Add
+            ft.replace(R.id.frameLayout, new AddTrack()); // ضع هنا الفراجمنت الخاص بـ Add
             ft.addToBackStack(null); // optional, يسمح بالرجوع للـ AdminFragment
             ft.commit();
         }
 
         private void gotoAllFragment() {
             FragmentTransaction ft = getActivity().getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.frameLayoutMain, new AllFragment()); // ضع هنا الفراجمنت الخاص بـ All
+            ft.replace(R.id.frameLayout, new AllFragment()); // ضع هنا الفراجمنت الخاص بـ All
             ft.addToBackStack(null);
             ft.commit();
         }

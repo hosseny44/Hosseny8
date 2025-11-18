@@ -1,5 +1,7 @@
 package com.example.hosseny;
 
+import static com.example.hosseny.R.*;
+
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -9,7 +11,6 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.hosseny.Fragment.AddTrack;
 import com.example.hosseny.Fragment.Admin;
 import com.example.hosseny.Fragment.Login;
 
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.frameLayout), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
@@ -30,9 +31,19 @@ public class MainActivity extends AppCompatActivity {
     private void gotoLoginFragment()
     {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        ft . replace(R.id.frameLayoutMain,new Login())  ;
+        ft . replace(R.id.frameLayout,new Login())  ;
         ft . commit();
     }
+
+    private void gotoAdminFragment()
+    {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft . replace(R.id.frameLayout,new Admin())  ;
+        ft.addToBackStack(null);
+        ft . commit();
+    }
+
+
 
 
 }
